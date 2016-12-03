@@ -40,7 +40,7 @@ describe('SkillTree', () => {
       const st2 = new SkillTree({
         name: 'fira',
         description: 'greater fire magic',
-        isAchievable: (self) => { return self.parent.level > 0 }
+        isAchievable: () => { return st.level > 0 }
       })
       st.appendChild(st2)
       st2.incrementLevel()

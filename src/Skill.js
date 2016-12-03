@@ -3,7 +3,8 @@
 const DEFAULT = {
   level: 0,
   name: '',
-  description: ''
+  description: '',
+  isAchievable: () => true
 }
 
 const seq = (function () {
@@ -20,7 +21,7 @@ class Skill {
     this._level = param.level
     this._name = param.name
     this._description = param.description
-    this._isAchievable = () => true
+    this._isAchievable = param.isAchievable
   }
 
   get id () {
