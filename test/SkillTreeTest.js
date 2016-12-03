@@ -31,6 +31,22 @@ describe('SkillTree', () => {
     skill.incrementLevel()
     assert(skill.level === 1)
   })
+  describe('incrementLevel', () => {
+    it('should not increment level if unachievable', () => {
+      const st = new SkillTree({
+        name: 'fire',
+        description: 'fire magic'
+      })
+      const st2 = new SkillTree({
+        name: 'fira',
+        description: 'greater fire magic',
+        isAchievable: (self) => { return self.parent.level > 0 }
+      })
+      st.appendChild(st2)
+      st2.incrementLevel()
+      assert(st2.level === 0)
+    })
+  })
   describe('appendChild', () => {
     let skillNode1
     let skillNode2
