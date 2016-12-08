@@ -45,6 +45,10 @@ describe('SkillTree', () => {
       st.appendChild(st2)
       st2.incrementLevel()
       assert(st2.level === 0)
+
+      st.incrementLevel()
+      st2.incrementLevel()
+      assert(st2.level === 1)
     })
   })
   describe('appendChild', () => {
